@@ -95,7 +95,7 @@ async def test_project(dut):
   dut.uio_in.value = 0
   await ClockCycles(dut.clk, 2)
   dut._log.info("DUT value: %d" % logic_array_to_int(dut.uo_out.value))
-  dut._log.info("REF value: %d" % x)
+  dut._log.info("REF value: 0")
   assert dut.uo_out.value == 0
 
   dut._log.info("## TEST DONE ##")
