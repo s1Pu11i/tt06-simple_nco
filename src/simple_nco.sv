@@ -75,7 +75,7 @@ module simple_nco (
   // Sine ROM Table
   reg [7:0] sineRomTable [0:255];
   initial begin
-    $readmemh("sine.rom", sineRomTable);
+    $readmemh("../src/sine.rom", sineRomTable);
   end
 
   // Sine ROM address generation
