@@ -53,7 +53,7 @@ async def test_project(dut):
   # enable sine output
   await ClockCycles(dut.clk, 1)
   dut.uio_in.value = 1
-  await ClockCycles(dut.clk, 2)
+  await ClockCycles(dut.clk, 3)
   #ref_sine = create_ref_values_sine()
   #for x in ref_sine:
   #  await ClockCycles(dut.clk, 1)
