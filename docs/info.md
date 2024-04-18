@@ -9,12 +9,19 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Simple NCO to generate a sine, square or sawtooth output.
+Sine wave is generated from a table and square and sawtooth from the phase accumulator.
 
 ## How to test
 
-Explain how to use your project
+Modeselection is done with the uio[1:0]:
+    0: NONE, output is 0
+    1: SINE
+    2: SQUARE
+    3: SAWTOOTH
+Frequency word is 16bit and is given as split into upper and lower part. Lower part is given with by 
+uio[2]='1' and ui[7:0]=word and the upper part by uio[3]='1' and ui[7:0]=word.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+None.
