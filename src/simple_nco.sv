@@ -86,13 +86,13 @@ module simple_nco (
     end
     else if (enable) begin
       if (phaseAccuTruncQuarter && ((phaseAccuTruncated[9:8] == 2'd1) || (phaseAccuTruncated[9:8] == 2'd3))) begin
-        sineRomAddr = 8'hFF;
+        sineRomAddr <= 8'hFF;
       end
       else if (phaseAccuTruncated[8]) begin
-        sineRomAddr = ~(phaseAccuTruncated[7:0] - 1);
+        sineRomAddr <= ~(phaseAccuTruncated[7:0] - 1);
       end
       else begin
-        sineRomAddr = phaseAccuTruncated[7:0];
+        sineRomAddr <= phaseAccuTruncated[7:0];
       end
       // just the 2 MSBs registered (means also same delay as sineRomAddr)
       phaseAccuTruncatedMsb <= phaseAccuTruncated[9];
