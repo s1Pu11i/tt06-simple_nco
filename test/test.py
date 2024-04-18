@@ -73,7 +73,7 @@ async def test_project(dut):
   # enable square for 2k cycles
   await ClockCycles(dut.clk, 1)
   dut.uio_in.value = 2
-  await ClockCycles(dut.clk, 2)
+  await ClockCycles(dut.clk, 3)
   dut._log.info("DUT value: %d" % logic_array_to_int(dut.uo_out.value))
   dut._log.info("REF value: 127")
   assert logic_array_to_int(dut.uo_out.value) == 127
@@ -94,7 +94,7 @@ async def test_project(dut):
 
   dut._log.info("Set output to 0")
   dut.uio_in.value = 0
-  await ClockCycles(dut.clk, 2)
+  await ClockCycles(dut.clk, 3)
   dut._log.info("DUT value: %d" % logic_array_to_int(dut.uo_out.value))
   dut._log.info("REF value: 0")
   assert dut.uo_out.value == 0
