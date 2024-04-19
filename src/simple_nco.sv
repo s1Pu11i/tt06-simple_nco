@@ -118,9 +118,9 @@ module simple_nco (
       squareOut <= 8'h0;
     else if (enable)
       if (phaseAccuTruncatedMsb)
-        squareOut <= 8'h81; // -127
+        squareOut <= 8'hFF;
       else
-        squareOut <= 8'h7F; // 127
+        squareOut <= 8'h0;
   end : SquareLbl
 
   // Sawtooth output (simply the further truncated phase accumulator)
