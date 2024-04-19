@@ -22,8 +22,7 @@ def create_ref_values_sine():
   resolution_full = 2**10
   length_full = 2 * np.pi
   values_float_full = np.sin(np.arange(0, length_full, length_full / resolution_full))
-  values_int_full = np.round(values_float_full * (2**7-1))
-  values_int_full[values_int_full < 0] += 256
+  values_int_full = np.round(values_float_full * (2**7-1) + 128)
   return values_int_full
 
 @cocotb.test()
@@ -75,8 +74,8 @@ async def test_project(dut):
   dut.uio_in.value = 2
   await ClockCycles(dut.clk, 3)
   dut._log.info("DUT value: %d" % logic_array_to_int(dut.uo_out.value))
-  dut._log.info("REF value: 127")
-  assert logic_array_to_int(dut.uo_out.value) == 127
+  dut._log.info("REF value: 0")
+  assert logic_array_to_int(dut.uo_out.value) == 0
   await ClockCycles(dut.clk, 2000)
 
   dut._log.info("Set some higher frequency word and switch to sawtooth output")
